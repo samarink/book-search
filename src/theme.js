@@ -3,7 +3,7 @@ const theme = {
     textPrimary: '#24292e',
     textSecondary: '#586069',
     lightgray: '#dbdbdb',
-    lightblue: '#64b4f5'
+    lightblue: '#64b4f5',
   },
   fontSizes: {
     normal: '16px',

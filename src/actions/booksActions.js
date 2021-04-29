@@ -7,9 +7,11 @@ export const receiveBooks = (books) => ({
   books,
 });
 
-export const fetchBooksBySearchTerm = (searchTerm) => (dispatch) => {
-  booksService
-    .searchByName(searchTerm)
-    .then((response) => dispatch(receiveBooks(response.data.docs)))
-    .catch((err) => console.log(err));
+export const fetchBooksBySearchTerm = (searchTerm) => async (dispatch) => {
+  try {
+    const response = await booksService.searchByName(searchTerm);
+    return dispatch(receiveBooks(response.data.docs));
+  } catch (err) {
+    return console.log(err);
+  }
 };

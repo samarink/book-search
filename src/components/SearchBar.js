@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import useDebounce from '../hooks/useDebounce';
-import { fetchBooksBySearchTerm } from '../actions/booksActions';
 import Input from './Input';
 
-const SearchBar = () => {
-  const dispatch = useDispatch();
+const SearchBar = ({ handleSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const debouncedSearchTerm = useDebounce(searchTerm, 1000);
 
@@ -14,12 +11,8 @@ const SearchBar = () => {
     setSearchTerm(event.target.value);
   };
 
-  const handleSearch = () => {
-    dispatch(fetchBooksBySearchTerm(debouncedSearchTerm));
-  };
-
   useEffect(() => {
-    handleSearch();
+    handleSearch(debouncedSearchTerm);
   }, [debouncedSearchTerm]);
 
   return (
