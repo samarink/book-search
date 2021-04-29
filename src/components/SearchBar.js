@@ -1,26 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import useDebounce from '../hooks/useDebounce';
 import Input from './Input';
+import Button from './Button';
 
-const SearchBar = ({ handleSearch }) => {
+const SearchBar = ({ handleSearch, isLoading }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const debouncedSearchTerm = useDebounce(searchTerm, 1000);
 
-  const onChange = (event) => {
-    event.preventDefault();
-    setSearchTerm(event.target.value);
-  };
-
   useEffect(() => {
-    handleSearch(debouncedSearchTerm);
+    if (!isLoading) {
+      handleSearch(debouncedSearchTerm);
+    }
   }, [debouncedSearchTerm]);
 
+  const onSubmit = (event) => {
+    event.preventDefault();
+
+    if (!isLoading) {
+      handleSearch(searchTerm);
+    }
+  };
+
   return (
-    <Input
-      value={searchTerm}
-      onChange={onChange}
-      placeholder="e.g The Lord Of The Rings.."
-    />
+    <form onSubmit={onSubmit}>
+      <Input
+        value={searchTerm}
+        onChange={({ target }) => setSearchTerm(target.value)}
+        placeholder="e.g The Lord Of The Rings.."
+        autofocus
+      />
+      <Button disabled={searchTerm === ''}>Search</Button>
+    </form>
   );
 };
 

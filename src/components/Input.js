@@ -8,9 +8,9 @@ const StyledInput = styled.input`
   box-sizing: border-box;
   padding: ${theme.paddings.small} ${theme.paddings.medium};
   margin-top: ${theme.margins.normal};
-  margin-bottom: ${theme.margins.big};
+  margin-bottom: ${theme.margins.normal};
   border: 2px solid ${theme.colors.lightgray};
-  border-radius: 8px;
+  border-radius: ${theme.borderRadius.normal};
   box-shadow: 5px 5px 18px #888888;
   font-size: ${theme.fontSizes.normal};
   font-weight: ${theme.fontWeights.bold}

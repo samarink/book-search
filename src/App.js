@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <>
-      <SearchBar handleSearch={handleSearch} />
+      <SearchBar handleSearch={handleSearch} isLoading={promiseInProgress} />
       {promiseInProgress ? <Loading /> : <BookList />}
     </>
   );
