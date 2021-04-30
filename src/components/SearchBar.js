@@ -3,9 +3,15 @@ import useDebounce from '../hooks/useDebounce';
 import Input from './Input';
 import Button from './Button';
 
-const SearchBar = ({ handleSearch, isLoading }) => {
+const SearchBar = ({ handleSearch, isLoading, resetBooksList }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const debouncedSearchTerm = useDebounce(searchTerm, 1000);
+
+  useEffect(() => {
+    if (searchTerm === '') {
+      resetBooksList();
+    }
+  }, [searchTerm]);
 
   useEffect(() => {
     if (!isLoading) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { trackPromise, usePromiseTracker } from 'react-promise-tracker';
-import { fetchBooksBySearchTerm } from './actions/booksActions';
+import { fetchBooksBySearchTerm, resetBooks } from './actions/booksActions';
 import { useDispatch } from 'react-redux';
 import SearchBar from './components/SearchBar';
 import BookList from './components/BooksList';
@@ -14,9 +14,17 @@ const App = () => {
     trackPromise(dispatch(fetchBooksBySearchTerm(searchTerm)));
   };
 
+  const resetBooksList = () => {
+    dispatch(resetBooks());
+  };
+
   return (
     <>
-      <SearchBar handleSearch={handleSearch} isLoading={promiseInProgress} />
+      <SearchBar
+        handleSearch={handleSearch}
+        resetBooksList={resetBooksList}
+        isLoading={promiseInProgress}
+      />
       {promiseInProgress ? <Loading /> : <BookList />}
     </>
   );

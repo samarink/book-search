@@ -1,10 +1,15 @@
 import booksService from '../services/booksService';
 
 export const RECEIVE_BOOKS = 'RECEIVE_BOOKS';
+export const RESET_BOOKS = 'RESET_BOOKS';
 
 export const receiveBooks = (books) => ({
   type: RECEIVE_BOOKS,
   books,
+});
+
+export const resetBooks = () => ({
+  type: RESET_BOOKS,
 });
 
 export const fetchBooksBySearchTerm = (searchTerm) => async (dispatch) => {
