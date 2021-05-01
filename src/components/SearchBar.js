@@ -14,7 +14,7 @@ const SearchBar = ({ handleSearch, isLoading, resetBooksList }) => {
   }, [searchTerm]);
 
   useEffect(() => {
-    if (!isLoading) {
+    if (!isLoading && debouncedSearchTerm !== '') {
       handleSearch(debouncedSearchTerm);
     }
   }, [debouncedSearchTerm]);
