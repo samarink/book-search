@@ -1,7 +1,7 @@
 # Search Book App
 
 ## An app to search and view books
-
+[LIVE DEMO](https://nervous-almeida-eef2c7.netlify.app/)
 ### Running a copy on your local machine
 
 The easiest way to run your local copy is to simply execute the following command: \
