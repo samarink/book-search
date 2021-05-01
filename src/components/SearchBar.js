@@ -33,7 +33,7 @@ const SearchBar = ({ handleSearch, isLoading, resetBooksList }) => {
         value={searchTerm}
         onChange={({ target }) => setSearchTerm(target.value)}
         placeholder="e.g The Lord Of The Rings.."
-        autofocus
+        autoFocus
       />
       <Button disabled={searchTerm === ''}>Search</Button>
     </form>
