@@ -14,7 +14,7 @@ const StyledInput = styled.input`
   margin-right: auto;
   border: 2px solid ${theme.colors.lightgray};
   border-radius: ${theme.borderRadius.normal};
-  box-shadow: 5px 5px 18px #888888;
+  box-shadow: ${theme.shadows.normal};
   font-size: ${theme.fontSizes.normal};
   font-weight: ${theme.fontWeights.bold}
 

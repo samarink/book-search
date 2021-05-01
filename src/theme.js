@@ -17,6 +17,11 @@ const theme = {
     normal: '400',
     bold: '700',
   },
+  shadows: {
+    normal: '5px 5px 18px #888888',
+    big:
+      ' 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19)',
+  },
   paddings: {
     small: '12px',
     normal: '16px',

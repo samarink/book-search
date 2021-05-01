@@ -24,6 +24,8 @@ const Container = styled.div`
 const Content = styled.div`
   display: flex;
   flex-direction: column;
+  box-shadow: ${theme.shadows.big};
+  border-radius: ${theme.borderRadius.normal};
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
@@ -79,6 +81,10 @@ const Close = styled.span`
   }
 `;
 
+const Bold = styled.span`
+  font-weight: ${theme.fontWeights.bold};
+`;
+
 const BookFullView = ({ book, isFullView, closeFullView }) => {
   if (!isFullView) {
     return null;
@@ -100,9 +106,15 @@ const BookFullView = ({ book, isFullView, closeFullView }) => {
           <TextWrapper>
             <Title>{title}</Title>
             <Author>Written by {formatAuthorName(author_name)}</Author>
-            <p>Published by {formatPublisher(publisher)}</p>
-            <p>Published at: {formatPublishYear(publish_year)}</p>
-            <p>ISBN: {formatISBN(isbn)}</p>
+            <p>
+              <Bold>Published by </Bold> {formatPublisher(publisher)}
+            </p>
+            <p>
+              <Bold>Published at:</Bold> {formatPublishYear(publish_year)}
+            </p>
+            <p>
+              <Bold>ISBN:</Bold> {formatISBN(isbn)}
+            </p>
           </TextWrapper>
         </ContentWrapper>
       </Content>
