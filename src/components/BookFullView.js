@@ -96,8 +96,8 @@ const BookFullView = ({ book, isFullView, closeFullView }) => {
 
   return (
     <Container onClick={handleClose}>
-      <Content>
-        <Close>&times;</Close>
+      <Content onClick={(event) => event.stopPropagation()}>
+        <Close onClick={handleClose}>&times;</Close>
         <ContentWrapper>
           <ImgContainer
             src={getBookCoverUrlWithCoverI(cover_i, 'large')}
