@@ -4,7 +4,7 @@
 [LIVE DEMO](https://nervous-almeida-eef2c7.netlify.app/)
 ### Running a copy on your local machine
 
-The easiest way to run your local copy is to simply execute the following command: \
+The easiest way to run your local copy is to simply execute the following command:
 
 ```bash
 git clone https://github.com/samarink/book-search && \
