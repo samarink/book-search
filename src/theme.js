@@ -29,6 +29,10 @@ const theme = {
     big: '32px',
     large: '48px',
   },
+  devices: {
+    mobile: '(min-width: 480px)',
+    desktop: '(min-width: 1025px)',
+  },
 };
 
 export default theme;

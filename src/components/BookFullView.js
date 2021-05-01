@@ -31,6 +31,15 @@ const Content = styled.div`
   width: 80%;
 `;
 
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media ${theme.devices.desktop} {
+    flex-direction: row;
+  }
+`;
+
 const Title = styled.h2`
   color: ${theme.colors.textPrimary};
   font-size: ${theme.fontSizes.big};
@@ -40,10 +49,27 @@ const Author = styled.h3`
   color: ${theme.colors.textSecondary};
 `;
 
+const ImgContainer = styled.img`
+  width: 50%;
+  height: auto;
+
+  @media ${theme.devices.desktop} {
+    width: 25%;
+    align-self: start;
+    margin-right: ${theme.margins.big};
+  }
+`;
+
+const TextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const Close = styled.span`
   color: #aaa;
   font-size: 28px;
   font-weight: bold;
+  align-self: flex-end;
 
   &:hover,
   &:focus {
@@ -66,15 +92,19 @@ const BookFullView = ({ book, isFullView, closeFullView }) => {
     <Container onClick={handleClose}>
       <Content>
         <Close>&times;</Close>
-        <img
-          src={getBookCoverUrlWithCoverI(cover_i, 'large')}
-          alt="book cover picture"
-        />
-        <Title>{title}</Title>
-        <Author>Written by {formatAuthorName(author_name)}</Author>
-        <p>Published by {formatPublisher(publisher)}</p>
-        <p>Published at: {formatPublishYear(publish_year)}</p>
-        <p>ISBN: {formatISBN(isbn)}</p>
+        <ContentWrapper>
+          <ImgContainer
+            src={getBookCoverUrlWithCoverI(cover_i, 'large')}
+            alt="book cover picture"
+          />
+          <TextWrapper>
+            <Title>{title}</Title>
+            <Author>Written by {formatAuthorName(author_name)}</Author>
+            <p>Published by {formatPublisher(publisher)}</p>
+            <p>Published at: {formatPublishYear(publish_year)}</p>
+            <p>ISBN: {formatISBN(isbn)}</p>
+          </TextWrapper>
+        </ContentWrapper>
       </Content>
     </Container>
   );

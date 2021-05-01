@@ -3,12 +3,15 @@ import styled from 'styled-components';
 import theme from '../theme';
 
 const StyledInput = styled.input`
+  display: block;
   outline: none;
   width: 100%;
   box-sizing: border-box;
   padding: ${theme.paddings.small} ${theme.paddings.medium};
   margin-top: ${theme.margins.normal};
   margin-bottom: ${theme.margins.normal};
+  margin-left: auto;
+  margin-right: auto;
   border: 2px solid ${theme.colors.lightgray};
   border-radius: ${theme.borderRadius.normal};
   box-shadow: 5px 5px 18px #888888;
@@ -19,6 +22,10 @@ const StyledInput = styled.input`
   &:focus,
   &:hover {
     border: 2px solid ${theme.colors.lightblue};
+  }
+
+  @media ${theme.devices.desktop} {
+    width: 60%;
   }
 `;
 

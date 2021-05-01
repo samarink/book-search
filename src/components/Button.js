@@ -7,8 +7,9 @@ const StyledButton = styled.button`
   margin: 0 auto;
   background-color: ${theme.colors.lightblue};
   border: none;
+  width: 50%;
   color: ${theme.colors.white};
-  padding: ${theme.paddings.normal} ${theme.paddings.big};
+  padding: ${theme.paddings.small} ${theme.paddings.normal};
   text-align: center;
   text-decoration: none;
   font-size: ${theme.fontSizes.normal};
@@ -30,6 +31,11 @@ const StyledButton = styled.button`
       cursor: not-allowed;
       box-shadow: none !important;
     `}
+
+  @media ${theme.devices.desktop} {
+    paddings: ${theme.paddings.normal} ${theme.paddings.big};
+    width: 10%;
+  }
 `;
 
 const Button = ({ children, ...rest }) => (

@@ -10,6 +10,10 @@ const Container = styled.li`
   flex-direction: column;
   margin-bottom: ${theme.margins.normal};
   cursor: pointer;
+
+  @media ${theme.devices.desktop} {
+    flex-direction: row;
+  }
 `;
 
 const ImgContainer = styled.img`
